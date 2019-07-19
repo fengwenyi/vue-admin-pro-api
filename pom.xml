@@ -39,6 +39,12 @@
             <artifactId>api-result</artifactId>
             <version>1.0.0.BUILD</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.github.iutil</groupId>
+            <artifactId>JavaLib</artifactId>
+            <version>1.0.2</version>
+        </dependency>
     </dependencies>
 
     <build>
