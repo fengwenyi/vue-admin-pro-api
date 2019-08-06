@@ -34,10 +34,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
         <dependency>
-            <groupId>com.github.iutil</groupId>
+            <groupId>com.github.fengwenyi</groupId>
             <artifactId>api-result</artifactId>
-            <version>1.0.0.BUILD</version>
+            <version>1.0.1.BUILD</version>
         </dependency>
 
         <dependency>

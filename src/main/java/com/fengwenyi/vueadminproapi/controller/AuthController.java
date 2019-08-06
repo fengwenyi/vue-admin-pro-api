@@ -1,7 +1,9 @@
 package com.fengwenyi.vueadminproapi.controller;
 
+import com.fengwenyi.api_result.model.ApiResultModel;
 import com.fengwenyi.vueadminproapi.entity.Login;
-import net.iutil.ApiResult;
+import com.fengwenyi.vueadminproapi.result.CodeMsg;
+import com.fengwenyi.vueadminproapi.util.ResultUtils;
 import net.iutil.javalib.util.IdUtils;
 import org.springframework.http.MediaType;
 import org.springframework.util.StringUtils;
@@ -27,17 +29,21 @@ public class AuthController {
      * @return
      */
     @PostMapping("/login")
-    public ApiResult login(@RequestBody Login login) {
+    public ApiResultModel login(@RequestBody Login login) {
         String account = login.getAccount();
         String password = login.getPassword();
-        if (StringUtils.isEmpty(account))
-            return ApiResult.error().setMsg("账号不能为空");
-        if (StringUtils.isEmpty(password))
-            return ApiResult.error().setMsg("密码不能为空");
-        if (!account.equals("admin"))
-            return ApiResult.error().setMsg("账号不存在");
-        if (!password.equals("admin@1234"))
-            return ApiResult.error().setMsg("密码不正确");
+        if (StringUtils.isEmpty(account)) {
+            return ResultUtils.error(CodeMsg.ERROR_AUTH_ACCOUNT_NOT_NULL);
+        }
+        if (StringUtils.isEmpty(password)) {
+            return ResultUtils.error(CodeMsg.ERROR_AUTH_PASSWORD_NOT_NULL);
+        }
+        if (!account.equals("admin")) {
+            return ResultUtils.error(CodeMsg.ERROR_AUTH_ACCOUNT_NOT_EXIST);
+        }
+        if (!password.equals("admin@1234")) {
+            return ResultUtils.error(CodeMsg.ERROR_AUTH_PASSWORD_INCORRECT);
+        }
         String uid = IdUtils.getIdByUUID();
         String token = IdUtils.getIdByUUID();
         // 可指定有效期
@@ -45,7 +51,7 @@ public class AuthController {
         // write code
         Map<String, String> map = new HashMap<>();
         map.put("token", uid + "_" + token);
-        return ApiResult.success(map);
+        return ResultUtils.success(map);
     }
 
     /**
@@ -54,12 +60,12 @@ public class AuthController {
      * @return
      */
     @GetMapping("/logout")
-    public ApiResult logout(@RequestHeader String token) {
+    public ApiResultModel logout(@RequestHeader String token) {
         // 清空token
         // write code
 
         // return
-        return ApiResult.success();
+        return ResultUtils.success();
     }
 
 }

@@ -1,6 +1,7 @@
 package com.fengwenyi.vueadminproapi.controller;
 
-import net.iutil.ApiResult;
+import com.fengwenyi.api_result.model.ApiResultModel;
+import com.fengwenyi.vueadminproapi.util.ResultUtils;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,8 +16,8 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @GetMapping("/{uid}")
-    public ApiResult logout(@PathVariable String uid, @RequestHeader String token) {
-        return ApiResult.success();
+    public ApiResultModel logout(@PathVariable String uid, @RequestHeader String token) {
+        return ResultUtils.success();
     }
 
 }
