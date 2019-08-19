@@ -35,10 +35,16 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
+        <!-- 接口返回JSON格式封装 -->
+        <!--<dependency>
             <groupId>com.github.fengwenyi</groupId>
             <artifactId>api-result</artifactId>
             <version>1.0.1.BUILD</version>
+        </dependency>-->
+        <dependency>
+            <groupId>com.fengwenyi</groupId>
+            <artifactId>api-result</artifactId>
+            <version>1.0.1</version>
         </dependency>
 
         <dependency>
