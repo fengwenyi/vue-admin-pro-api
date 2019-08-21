@@ -1,7 +1,7 @@
 package com.fengwenyi.vueadminproapi.controller;
 
 import com.fengwenyi.api_result.model.ApiResultModel;
-import com.fengwenyi.vueadminproapi.util.ResultUtils;
+import com.fengwenyi.vueadminproapi.util.ApiResultUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +21,7 @@ public class DataController {
     public ApiResultModel test(@RequestHeader String token, @RequestBody Object data) {
         log.info("token: {}", token);
         log.info("data: {}", data);
-        return ResultUtils.success("这是服务响应的数据-test : " + data);
+        return ApiResultUtils.success("这是服务响应的数据-test : " + data);
     }
 
 }

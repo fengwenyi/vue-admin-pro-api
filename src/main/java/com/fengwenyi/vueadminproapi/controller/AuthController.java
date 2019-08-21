@@ -3,7 +3,7 @@ package com.fengwenyi.vueadminproapi.controller;
 import com.fengwenyi.api_result.model.ApiResultModel;
 import com.fengwenyi.vueadminproapi.entity.Login;
 import com.fengwenyi.vueadminproapi.result.CodeMsg;
-import com.fengwenyi.vueadminproapi.util.ResultUtils;
+import com.fengwenyi.vueadminproapi.util.ApiResultUtils;
 import net.iutil.javalib.util.IdUtils;
 import org.springframework.http.MediaType;
 import org.springframework.util.StringUtils;
@@ -33,16 +33,16 @@ public class AuthController {
         String account = login.getAccount();
         String password = login.getPassword();
         if (StringUtils.isEmpty(account)) {
-            return ResultUtils.error(CodeMsg.ERROR_AUTH_ACCOUNT_NOT_NULL);
+            return ApiResultUtils.error(CodeMsg.ERROR_AUTH_ACCOUNT_NOT_NULL);
         }
         if (StringUtils.isEmpty(password)) {
-            return ResultUtils.error(CodeMsg.ERROR_AUTH_PASSWORD_NOT_NULL);
+            return ApiResultUtils.error(CodeMsg.ERROR_AUTH_PASSWORD_NOT_NULL);
         }
         if (!account.equals("admin")) {
-            return ResultUtils.error(CodeMsg.ERROR_AUTH_ACCOUNT_NOT_EXIST);
+            return ApiResultUtils.error(CodeMsg.ERROR_AUTH_ACCOUNT_NOT_EXIST);
         }
         if (!password.equals("admin@1234")) {
-            return ResultUtils.error(CodeMsg.ERROR_AUTH_PASSWORD_INCORRECT);
+            return ApiResultUtils.error(CodeMsg.ERROR_AUTH_PASSWORD_INCORRECT);
         }
         String uid = IdUtils.getIdByUUID();
         String token = IdUtils.getIdByUUID();
@@ -51,7 +51,7 @@ public class AuthController {
         // write code
         Map<String, String> map = new HashMap<>();
         map.put("token", uid + "_" + token);
-        return ResultUtils.success(map);
+        return ApiResultUtils.success(map);
     }
 
     /**
@@ -65,7 +65,7 @@ public class AuthController {
         // write code
 
         // return
-        return ResultUtils.success();
+        return ApiResultUtils.success();
     }
 
 }

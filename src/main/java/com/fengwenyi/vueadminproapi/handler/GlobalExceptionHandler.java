@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import com.fengwenyi.api_result.model.ApiResultModel;
 import com.fengwenyi.vueadminproapi.result.CodeMsg;
-import com.fengwenyi.vueadminproapi.util.ResultUtils;
+import com.fengwenyi.vueadminproapi.util.ApiResultUtils;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -38,7 +38,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = HttpRequestMethodNotSupportedException.class)
     public ApiResultModel httpRequestMethodNotSupportException(HttpRequestMethodNotSupportedException e, HttpServletRequest request) {
 //        return ResultUtils.error(CodeMsg.ERROR_COMMON_REQUEST_EXCEPTION.fillArgs("请求方法不支持"));
-        return ResultUtils.error(CodeMsg.ERROR_COMMON_REQUEST_EXCEPTION);
+        return ApiResultUtils.error(CodeMsg.ERROR_COMMON_REQUEST_EXCEPTION);
     }
 
     /**
@@ -48,7 +48,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = HttpMediaTypeNotSupportedException.class)
     public ApiResultModel httpMediaTypeNotSupportException(HttpMediaTypeNotSupportedException e, HttpServletRequest request) {
 //        return ResultUtils.error(CodeMsg.ERROR_COMMON_REQUEST_EXCEPTION.fillArgs("请求媒体类型不支持"));
-        return ResultUtils.error(CodeMsg.ERROR_COMMON_REQUEST_EXCEPTION);
+        return ApiResultUtils.error(CodeMsg.ERROR_COMMON_REQUEST_EXCEPTION);
     }
 
     /**
@@ -78,7 +78,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = MismatchedInputException.class)
     public ApiResultModel mismatchedInputException(MismatchedInputException e, HttpServletRequest request) {
-        return ResultUtils.error(CodeMsg.ERROR_PARAM_JSON_INCORRECT);
+        return ApiResultUtils.error(CodeMsg.ERROR_PARAM_JSON_INCORRECT);
     }
 
 
@@ -88,7 +88,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = JsonParseException.class)
     public ApiResultModel jsonParseException(JsonParseException e, HttpServletRequest request) {
-        return ResultUtils.error(CodeMsg.ERROR_PARAM_JSON_INCORRECT);
+        return ApiResultUtils.error(CodeMsg.ERROR_PARAM_JSON_INCORRECT);
     }
 
     /**
@@ -97,7 +97,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = JsonMappingException.class)
     public ApiResultModel jsonMappingException(JsonMappingException e, HttpServletRequest request) {
-        return ResultUtils.error(CodeMsg.ERROR_PARAM_JSON_INCORRECT);
+        return ApiResultUtils.error(CodeMsg.ERROR_PARAM_JSON_INCORRECT);
     }
 
     /**
@@ -108,7 +108,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = HttpMessageNotReadableException.class)
     public ApiResultModel httpMessageNotReadableException(HttpMessageNotReadableException e, HttpServletRequest request) {
 //        return ResultUtils.error(CodeMsg.ERROR_COMMON_REQUEST_EXCEPTION.fillArgs(e.getMessage()));
-        return ResultUtils.error(CodeMsg.ERROR_COMMON_REQUEST_EXCEPTION);
+        return ApiResultUtils.error(CodeMsg.ERROR_COMMON_REQUEST_EXCEPTION);
 //        ApiResult apiResult = ApiResult.error().setCode(102001).setMsg("请求异常：" + e.getMessage());
     }
 
@@ -119,7 +119,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = IllegalArgumentException.class)
     public ApiResultModel illegalArgumentException(IllegalArgumentException e, HttpServletRequest request) {
 //        return ResultUtils.error(CodeMsg.ERROR_PARAM_ILLEGAL.fillArgs(e.getMessage()));
-        return ResultUtils.error(CodeMsg.ERROR_PARAM_ILLEGAL);
+        return ApiResultUtils.error(CodeMsg.ERROR_PARAM_ILLEGAL);
 
     }
 
@@ -158,7 +158,7 @@ public class GlobalExceptionHandler {
         }
 //        Object target = bindingResult.getTarget();
 //        BaseParamVO baseParamVO = (BaseParamVO) target;
-        return ResultUtils.error(CodeMsg.ERROR_COMMON_VALIDATION_EXCEPTION.fillArgs(stringBuilder.substring(0, stringBuilder.length() - 2)));
+        return ApiResultUtils.error(CodeMsg.ERROR_COMMON_VALIDATION_EXCEPTION.fillArgs(stringBuilder.substring(0, stringBuilder.length() - 2)));
 //        ApiResult apiResult = ApiResult.error().setCode(102007).setMsg("校验异常：" + stringBuilder.substring(0, stringBuilder.length() - 2));
 
     }

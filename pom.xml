@@ -36,16 +36,16 @@
         </dependency>
 
         <!-- 接口返回JSON格式封装 -->
-        <!--<dependency>
+        <dependency>
             <groupId>com.github.fengwenyi</groupId>
             <artifactId>api-result</artifactId>
-            <version>1.0.1.BUILD</version>
-        </dependency>-->
-        <dependency>
+            <version>2.0.0.BUILD</version>
+        </dependency>
+        <!--<dependency>
             <groupId>com.fengwenyi</groupId>
             <artifactId>api-result</artifactId>
             <version>1.0.1</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>com.github.iutil</groupId>

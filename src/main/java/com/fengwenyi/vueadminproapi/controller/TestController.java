@@ -1,7 +1,7 @@
 package com.fengwenyi.vueadminproapi.controller;
 
 import com.fengwenyi.api_result.model.ApiResultModel;
-import com.fengwenyi.vueadminproapi.util.ResultUtils;
+import com.fengwenyi.vueadminproapi.util.ApiResultUtils;
 import com.fengwenyi.vueadminproapi.vo.param.UserInfoVO;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
@@ -28,7 +28,7 @@ public class TestController {
      */
     @PostMapping("/userInfo")
     public ApiResultModel userInfo(@RequestBody @Validated UserInfoVO vo) {
-        return ResultUtils.success(vo);
+        return ApiResultUtils.success(vo);
     }
 
 }
